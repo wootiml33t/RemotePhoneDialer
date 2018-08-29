@@ -7,8 +7,8 @@ ToDo:
 
 -Implement logic for clear button on the dialpad
 
--Implement call and hangup button functionality
+-[X]Implement call and hangup button functionality
 
--Remove test sms
+-[X]Remove test sms
 
 -Beautification
