@@ -185,7 +185,7 @@
             this.button_end.TabIndex = 13;
             this.button_end.Text = "End";
             this.button_end.UseVisualStyleBackColor = true;
-            this.button_end.Click += new System.EventHandler(this.button14_Click);
+            this.button_end.Click += new System.EventHandler(this.button_end_Click);
             // 
             // textBoxPhoneNumber
             // 

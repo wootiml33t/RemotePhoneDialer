@@ -23,11 +23,6 @@ namespace RemotePhoneDialer
             
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -95,7 +90,11 @@ namespace RemotePhoneDialer
 
         private void button_call_Click(object sender, EventArgs e)
         {
-
+            //Sets it so that the remotephone menu doesnt popup when the call is made
+            app.RequestWindowActivationModes(WindowActivationModes.SuppressActivationForOutgoingCalls); 
+            app.Phone.Call(textBoxPhoneNumber.Text);
+            //now that the call has been made it tells it not to activate if a call is recieved. must be invoked here so that it counteracts the first incovation of this method
+            app.RequestWindowActivationModes(WindowActivationModes.SuppressActivationForIncomingCalls);
         }
 
         private void inputValidator(char keyIn)
@@ -120,7 +119,6 @@ namespace RemotePhoneDialer
                 {
                     textBoxPhoneNumber.Text.TrimEnd();
                 }
-
             }
         }
 
@@ -134,10 +132,15 @@ namespace RemotePhoneDialer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Guid smsId = new Guid();
-            string[] phoneNumbersToSendSMS = new string[1];
-            phoneNumbersToSendSMS[0] = "5555555555";
-            app.Phone.SendSMS(phoneNumbersToSendSMS, "test", out smsId);
+            //Guid smsId = new Guid();
+            //string[] phoneNumbersToSendSMS = new string[1];
+            //phoneNumbersToSendSMS[0] = "5555555555";
+            //app.Phone.SendSMS(phoneNumbersToSendSMS, "test", out smsId);
+        }
+
+        private void button_end_Click(object sender, EventArgs e)
+        {
+            app.Phone.EndCall();
         }
     }
 }
